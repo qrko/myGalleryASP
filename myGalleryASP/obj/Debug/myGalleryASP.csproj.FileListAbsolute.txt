@@ -1,0 +1,5 @@
+c:\documents and settings\administrator\moje dokumenty\visual studio 2010\Projects\myGalleryASP\myGalleryASP\bin\myGalleryASP.dll
+c:\documents and settings\administrator\moje dokumenty\visual studio 2010\Projects\myGalleryASP\myGalleryASP\bin\myGalleryASP.pdb
+c:\documents and settings\administrator\moje dokumenty\visual studio 2010\Projects\myGalleryASP\myGalleryASP\obj\Debug\ResolveAssemblyReference.cache
+c:\documents and settings\administrator\moje dokumenty\visual studio 2010\Projects\myGalleryASP\myGalleryASP\obj\Debug\myGalleryASP.dll
+c:\documents and settings\administrator\moje dokumenty\visual studio 2010\Projects\myGalleryASP\myGalleryASP\obj\Debug\myGalleryASP.pdb

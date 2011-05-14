@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="myGalleryASP.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="includes/mygallery.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="includes/jquery-1.6.min.js"></script>
+    <script type="text/javascript" src="includes/farinspace/jquery.imgpreload.min.js"></script>
+    <script type="text/javascript" src="includes/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.js"></script>
+    <script type="text/javascript" src="includes/gallery.js"></script>
+    <link href="includes/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet"
+        type="text/css" />
+    <asp:ContentPlaceHolder ID="Head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div class="page_container">
+        <div class="gallery_credit">
+            <h1>
+                <asp:ContentPlaceHolder ID="Title" runat="server" />
+            </h1>
+        </div>
+        <div class="gallery_type">
+            <h2>
+                ::galeria::</h2>
+        </div>
+        <div class="clear_both">
+        </div>
+        <div class="gallery_top">
+        </div>
+        <div class="gallery_content">
+            <div class="gallery_thumbnails">
+                <asp:ContentPlaceHolder ID="Content" runat="server" />
+                <div class="clear_both">
+                </div>
+            </div>
+            <div class="gallery_preview">
+            </div>
+            <div class="clear_both">
+            </div>
+            <div class="gallery_contact">
+                <a href="mailto:lol@lol.com" class="contactlink">Kontakt</a></div>
+            <div class="gallery_caption">
+                </div>
+            <div class="clear_both">
+            </div>
+            <div class="gallery_preload_area">
+            </div>
+        </div>
+        <div class="gallery_bottom">
+        </div>
+    </div>
+    </form>
+</body>
+</html>
