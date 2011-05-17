@@ -1,0 +1,5 @@
+Z:\Projekty Visual Studio\myGalleryASP\HostingGrafikiMVC\bin\HostingGrafikiMVC.dll
+Z:\Projekty Visual Studio\myGalleryASP\HostingGrafikiMVC\bin\HostingGrafikiMVC.pdb
+Z:\Projekty Visual Studio\myGalleryASP\HostingGrafikiMVC\obj\Debug\ResolveAssemblyReference.cache
+Z:\Projekty Visual Studio\myGalleryASP\HostingGrafikiMVC\obj\Debug\HostingGrafikiMVC.dll
+Z:\Projekty Visual Studio\myGalleryASP\HostingGrafikiMVC\obj\Debug\HostingGrafikiMVC.pdb
