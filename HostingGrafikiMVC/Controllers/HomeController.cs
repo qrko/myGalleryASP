@@ -13,6 +13,9 @@ namespace HostingGrafikiMVC.Controllers
     [HandleError]
     public class HomeController : Controller
     {
+
+        HomeModels home = new HomeModels();
+
         public ActionResult Index()
         {
             ViewData["Message"] = "Witaj w serwisie hostingu grafiki w ASP.NET MVC2!";
@@ -49,25 +52,40 @@ namespace HostingGrafikiMVC.Controllers
                 if (file.ContentLength > 0)
                 {
 
-                    Directory.CreateDirectory(HttpContext.Server.MapPath("../Pliki/") + p.GUID.GetHashCode());
+                    bool plik = false;
 
-                    string filePath = Path.Combine(HttpContext.Server.MapPath("../Pliki/" + p.GUID.GetHashCode())
-                            , Path.GetFileName(file.FileName));
-                    file.SaveAs(filePath);
-
-                    HomeModels home = new HomeModels();
-
-                    if (home.DodajObrazek(new Plik
+                    try
                     {
-                        NazwaPliku = Path.GetFileName(file.FileName),
-                        GUID = Guid.NewGuid(),
-                        Prywatny = checkBoxBool
-                    }))
+                        Directory.CreateDirectory(HttpContext.Server.MapPath("../Pliki/") + p.GUID);
+
+                        string filePath = Path.Combine(HttpContext.Server.MapPath("../Pliki/" + p.GUID)
+                                , Path.GetFileName(file.FileName));
+                        file.SaveAs(filePath);
+                        plik = true;
+                    }
+
+                    catch { }
+
+
+
+                    if (home.DodajObrazek(p) && plik)
+                    {
                         ViewData["AkcjaDodawania"] = "Grafika dodana pomyślnie";
+                        ViewData["ŚcieżkaPobierania"] = @"http://localhost:29432/Home/Pobierz/" + p.GUID;
+                        ViewData["ŚcieżkaPobieraniaBezpośrednia"] = @"http://localhost:29432/Pliki/" + p.GUID + "/" + p.NazwaPliku;
+                    }
 
                     else ViewData["AkcjaDodawania"] = "Wystąpił błąd w trakcie dodawania grafiki";
                 }
             }
+
+            return View();
+        }
+
+        public ActionResult Pobierz(string id) 
+        {
+            Pliki p = home.PobierzPlik(id.ToString());
+            Response.Redirect(("/Pliki/" + p.GUID + "/" + p.NazwaPliku));
 
             return View();
         }

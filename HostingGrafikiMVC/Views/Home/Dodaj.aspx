@@ -17,6 +17,18 @@
     <%= ViewData["AkcjaDodawania"] %> <br />
 
     <input type="submit" name="Dodaj" value="Dodaj grafikę" />
+
+    <% if (ViewData["ŚcieżkaPobierania"] != "" && ViewData["ŚcieżkaPobierania"] != null)
+       { %>
+       <br />
+       Link zamaskowany: <%: Html.TextBox("ŚcieżkaPobierania", ViewData["ŚcieżkaPobierania"]) %>
+       <br />
+       Link bezpośredni: <%: Html.TextBox("ŚcieżkaPobieraniaBezpośrednia", ViewData["ŚcieżkaPobieraniaBezpośrednia"]) %>
+       <br />
+       Link do usunięcia: //do zrobienia
+
+    <% } %>
+    
     <% } %>
 
 </asp:Content>

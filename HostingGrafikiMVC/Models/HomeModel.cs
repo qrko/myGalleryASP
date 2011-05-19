@@ -30,5 +30,10 @@ namespace HostingGrafikiMVC.Models
             catch { return false; }
             
         }
+
+        public Pliki PobierzPlik(string GUID)
+        {
+            return baza.Plikis.Single(a => a.GUID == GUID);
+        }
     }
 }
