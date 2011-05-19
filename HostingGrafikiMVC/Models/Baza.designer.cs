@@ -30,12 +30,12 @@ namespace HostingGrafikiMVC.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertUsuwanie(Usuwanie instance);
-    partial void UpdateUsuwanie(Usuwanie instance);
-    partial void DeleteUsuwanie(Usuwanie instance);
     partial void InsertPliki(Pliki instance);
     partial void UpdatePliki(Pliki instance);
     partial void DeletePliki(Pliki instance);
+    partial void InsertUsuwanie(Usuwanie instance);
+    partial void UpdateUsuwanie(Usuwanie instance);
+    partial void DeleteUsuwanie(Usuwanie instance);
     #endregion
 		
 		public BazaDataContext() : 
@@ -68,14 +68,6 @@ namespace HostingGrafikiMVC.Models
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Usuwanie> Usuwanies
-		{
-			get
-			{
-				return this.GetTable<Usuwanie>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Pliki> Plikis
 		{
 			get
@@ -83,155 +75,12 @@ namespace HostingGrafikiMVC.Models
 				return this.GetTable<Pliki>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Usuwanie")]
-	public partial class Usuwanie : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private int _IDPliku;
-		
-		private string _GUID;
-		
-		private EntityRef<Pliki> _Pliki;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnIDPlikuChanging(int value);
-    partial void OnIDPlikuChanged();
-    partial void OnGUIDChanging(string value);
-    partial void OnGUIDChanged();
-    #endregion
-		
-		public Usuwanie()
-		{
-			this._Pliki = default(EntityRef<Pliki>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ID
+		public System.Data.Linq.Table<Usuwanie> Usuwanies
 		{
 			get
 			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPliku", DbType="Int NOT NULL")]
-		public int IDPliku
-		{
-			get
-			{
-				return this._IDPliku;
-			}
-			set
-			{
-				if ((this._IDPliku != value))
-				{
-					if (this._Pliki.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIDPlikuChanging(value);
-					this.SendPropertyChanging();
-					this._IDPliku = value;
-					this.SendPropertyChanged("IDPliku");
-					this.OnIDPlikuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GUID", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string GUID
-		{
-			get
-			{
-				return this._GUID;
-			}
-			set
-			{
-				if ((this._GUID != value))
-				{
-					this.OnGUIDChanging(value);
-					this.SendPropertyChanging();
-					this._GUID = value;
-					this.SendPropertyChanged("GUID");
-					this.OnGUIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Pliki_Usuwanie", Storage="_Pliki", ThisKey="IDPliku", OtherKey="ID", IsForeignKey=true)]
-		public Pliki Pliki
-		{
-			get
-			{
-				return this._Pliki.Entity;
-			}
-			set
-			{
-				Pliki previousValue = this._Pliki.Entity;
-				if (((previousValue != value) 
-							|| (this._Pliki.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Pliki.Entity = null;
-						previousValue.Usuwanies.Remove(this);
-					}
-					this._Pliki.Entity = value;
-					if ((value != null))
-					{
-						value.Usuwanies.Add(this);
-						this._IDPliku = value.ID;
-					}
-					else
-					{
-						this._IDPliku = default(int);
-					}
-					this.SendPropertyChanged("Pliki");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<Usuwanie>();
 			}
 		}
 	}
@@ -395,6 +244,157 @@ namespace HostingGrafikiMVC.Models
 		{
 			this.SendPropertyChanging();
 			entity.Pliki = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Usuwanie")]
+	public partial class Usuwanie : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private int _IDPliku;
+		
+		private string _GUID;
+		
+		private EntityRef<Pliki> _Pliki;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnIDPlikuChanging(int value);
+    partial void OnIDPlikuChanged();
+    partial void OnGUIDChanging(string value);
+    partial void OnGUIDChanged();
+    #endregion
+		
+		public Usuwanie()
+		{
+			this._Pliki = default(EntityRef<Pliki>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPliku", DbType="Int NOT NULL")]
+		public int IDPliku
+		{
+			get
+			{
+				return this._IDPliku;
+			}
+			set
+			{
+				if ((this._IDPliku != value))
+				{
+					if (this._Pliki.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIDPlikuChanging(value);
+					this.SendPropertyChanging();
+					this._IDPliku = value;
+					this.SendPropertyChanged("IDPliku");
+					this.OnIDPlikuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GUID", DbType="VarChar(36) NOT NULL", CanBeNull=false)]
+		public string GUID
+		{
+			get
+			{
+				return this._GUID;
+			}
+			set
+			{
+				if ((this._GUID != value))
+				{
+					this.OnGUIDChanging(value);
+					this.SendPropertyChanging();
+					this._GUID = value;
+					this.SendPropertyChanged("GUID");
+					this.OnGUIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Pliki_Usuwanie", Storage="_Pliki", ThisKey="IDPliku", OtherKey="ID", IsForeignKey=true)]
+		public Pliki Pliki
+		{
+			get
+			{
+				return this._Pliki.Entity;
+			}
+			set
+			{
+				Pliki previousValue = this._Pliki.Entity;
+				if (((previousValue != value) 
+							|| (this._Pliki.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Pliki.Entity = null;
+						previousValue.Usuwanies.Remove(this);
+					}
+					this._Pliki.Entity = value;
+					if ((value != null))
+					{
+						value.Usuwanies.Add(this);
+						this._IDPliku = value.ID;
+					}
+					else
+					{
+						this._IDPliku = default(int);
+					}
+					this.SendPropertyChanged("Pliki");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

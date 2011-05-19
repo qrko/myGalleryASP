@@ -11,7 +11,7 @@
     <p>
     <input type="file" name="FileUpload" id="FileUpload" /> Wybierz grafikę do załadowania
     </p>
-    <input type="checkbox" name="Prywatny" id="Prywatny" /> Prywatny (nie będzie wyświetlany w galerii)
+    <%: Html.CheckBox("Prywatny") %> Prywatny (nie będzie wyświetlany w galerii)
     <br />
 
     <%= ViewData["AkcjaDodawania"] %> <br />
@@ -25,7 +25,7 @@
        <br />
        Link bezpośredni: <%: Html.TextBox("ŚcieżkaPobieraniaBezpośrednia", ViewData["ŚcieżkaPobieraniaBezpośrednia"]) %>
        <br />
-       Link do usunięcia: //do zrobienia
+       Link do usunięcia:<%: Html.TextBox("ŚcieżkaUsuwania", ViewData["ŚcieżkaUsuwania"])  %>
 
     <% } %>
     

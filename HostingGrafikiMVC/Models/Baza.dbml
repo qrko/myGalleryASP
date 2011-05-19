@@ -1,13 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HostingGrafiki" Class="BazaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=ANDREW-LAPTOP;Initial Catalog=HostingGrafiki;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="HostingGrafikiConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Usuwanie" Member="Usuwanies">
-    <Type Name="Usuwanie">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="IDPliku" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="GUID" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Association Name="Pliki_Usuwanie" Member="Pliki" ThisKey="IDPliku" OtherKey="ID" Type="Pliki" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Pliki" Member="Plikis">
     <Type Name="Pliki">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -15,6 +7,14 @@
       <Column Name="GUID" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="Prywatny" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Pliki_Usuwanie" Member="Usuwanies" ThisKey="ID" OtherKey="IDPliku" Type="Usuwanie" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuwanie" Member="Usuwanies">
+    <Type Name="Usuwanie">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDPliku" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GUID" Type="System.String" DbType="VarChar(36) NOT NULL" CanBeNull="false" />
+      <Association Name="Pliki_Usuwanie" Member="Pliki" ThisKey="IDPliku" OtherKey="ID" Type="Pliki" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

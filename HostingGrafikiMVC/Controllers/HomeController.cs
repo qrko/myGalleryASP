@@ -73,12 +73,23 @@ namespace HostingGrafikiMVC.Controllers
                         ViewData["AkcjaDodawania"] = "Grafika dodana pomyślnie";
                         ViewData["ŚcieżkaPobierania"] = @"http://localhost:29432/Home/Pobierz/" + p.GUID;
                         ViewData["ŚcieżkaPobieraniaBezpośrednia"] = @"http://localhost:29432/Pliki/" + p.GUID + "/" + p.NazwaPliku;
+                        ViewData["ŚcieżkaUsuwania"] = @"http://localhost:29432/Home/Usuń/" + home.PobierzGUIDUsuwaniaWgIDPliku(home.PobierzIDwgGUID(p.GUID.ToString()));
                     }
 
                     else ViewData["AkcjaDodawania"] = "Wystąpił błąd w trakcie dodawania grafiki";
                 }
             }
 
+            return View();
+        }
+
+        public ActionResult Usuń(string id) 
+        {
+            if (home.Usuń(id)) 
+            {
+                ViewData["StatusUsuwania"] = "Usunięto pomyślnie";
+            }
+            else ViewData["StatusUsuwania"] = "Wystąpił błąd w trakcie usuwania";
             return View();
         }
 

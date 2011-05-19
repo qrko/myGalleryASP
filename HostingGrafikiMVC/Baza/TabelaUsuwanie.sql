@@ -1,7 +1,7 @@
 USE [HostingGrafiki]
 GO
 
-/****** Object:  Table [dbo].[Usuwanie]    Script Date: 05/19/2011 15:28:12 ******/
+/****** Object:  Table [dbo].[Usuwanie]    Script Date: 05/19/2011 16:44:36 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -14,7 +14,7 @@ GO
 CREATE TABLE [dbo].[Usuwanie](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[IDPliku] [int] NOT NULL,
-	[GUID] [varchar](30) NOT NULL,
+	[GUID] [varchar](36) NOT NULL,
  CONSTRAINT [PK_Usuwanie] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
