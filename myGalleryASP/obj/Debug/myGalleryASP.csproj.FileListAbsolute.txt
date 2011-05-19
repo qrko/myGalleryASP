@@ -3,3 +3,8 @@ c:\documents and settings\administrator\moje dokumenty\visual studio 2010\Projec
 c:\documents and settings\administrator\moje dokumenty\visual studio 2010\Projects\myGalleryASP\myGalleryASP\obj\Debug\ResolveAssemblyReference.cache
 c:\documents and settings\administrator\moje dokumenty\visual studio 2010\Projects\myGalleryASP\myGalleryASP\obj\Debug\myGalleryASP.dll
 c:\documents and settings\administrator\moje dokumenty\visual studio 2010\Projects\myGalleryASP\myGalleryASP\obj\Debug\myGalleryASP.pdb
+Z:\Projekty Visual Studio\myGalleryASP\myGalleryASP\bin\myGalleryASP.dll
+Z:\Projekty Visual Studio\myGalleryASP\myGalleryASP\bin\myGalleryASP.pdb
+Z:\Projekty Visual Studio\myGalleryASP\myGalleryASP\obj\Debug\ResolveAssemblyReference.cache
+Z:\Projekty Visual Studio\myGalleryASP\myGalleryASP\obj\Debug\myGalleryASP.dll
+Z:\Projekty Visual Studio\myGalleryASP\myGalleryASP\obj\Debug\myGalleryASP.pdb
